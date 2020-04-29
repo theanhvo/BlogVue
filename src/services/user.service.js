@@ -1,5 +1,5 @@
-import config from 'config';
-import { authHeader } from '../helpers';
+import config from '../../config';
+import { authHeader } from '../helpers/auth-header';
 
 export const userService = {
     login,
@@ -17,7 +17,7 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
-
+    console.log(`${config.apiUrl}/users/authenticate`)
     return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {

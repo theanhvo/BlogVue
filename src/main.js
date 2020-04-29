@@ -1,11 +1,12 @@
 import Vue from 'vue';
-import VeeValidate from 'vee-validate';
+import { ValidationProvider } from 'vee-validate';
 
 import { store } from './store';
 import { router } from './router';
 import App from './App.vue';
 
-Vue.use(VeeValidate);
+// Vue.use(VeeValidate);
+Vue.component('ValidationProvider', ValidationProvider);
 
 new Vue({
   el: '#app',

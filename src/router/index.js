@@ -3,19 +3,19 @@ import Router from 'vue-router'
 
 import HomePage from '../components/HomePage'
 import LoginPage from '../components/account/LoginPage'
-import RegisterPage from '../components/SignupPage.vue'
+import RegisterPage from '../components/account/SignupPage.vue'
 
 Vue.use(Router)
 
 export const router = new Router({
   mode: 'history',
   routes: [
-      { path: '/', component: HomePage },
-      { path: '/login', component: LoginPage },
-      { path: '/register', component: RegisterPage },
+    { path: '/', component: HomePage },
+    { path: '/login', component: LoginPage },
+    { path: '/register', component: RegisterPage },
 
-      // nếu không sẽ chuyển đến trang home
-      { path: '*', redirect: '/' }
+    // nếu không sẽ chuyển đến trang home
+    { path: '*', redirect: '/' }
   ]
 });
 
@@ -26,7 +26,7 @@ router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem('user');
 
   if (authRequired && !loggedIn) {
-      return next('/login');
+    return next('/login');
   }
 
   next();
